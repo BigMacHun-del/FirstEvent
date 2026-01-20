@@ -3,11 +3,13 @@ package sparta.firstevent.domain.event;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import sparta.firstevent.adapter.dto.EventRequestDto;
 import sparta.firstevent.domain.member.Member;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Getter
 @Entity
@@ -36,6 +38,24 @@ public class Event {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Participant> participants = new ArrayList<>();
 
+    public static Event regist(EventRequestDto requestDto) {
+
+        Objects.requireNonNull(requestDto.getTitle());
+        Objects.requireNonNull(requestDto.getDescription());
+        Objects.requireNonNull(requestDto.getCapacity());
+
+        Event event = new Event();
+        event.title = requestDto.getTitle();
+        event.description = requestDto.getDescription();
+        event.capacity = requestDto.getCapacity();
+
+        event.period = EventPeriod.of(requestDto.getStartAt(), requestDto.getEndAt());
+
+        event.status = EventStatus.PENDING;
+
+        return event;
+    }
+
     public static Event regist(String title, String description, Integer capacity,
                          LocalDateTime startAt, LocalDateTime endAt) {
 
@@ -58,6 +78,15 @@ public class Event {
 
     public void finish() {
         this.status = EventStatus.FINISHED;
+    }
+
+    public void update(EventRequestDto requestDto) {
+        validToUpdate();
+
+        this.title = requestDto.getTitle();
+        this.description = requestDto.getDescription();
+        this.capacity = requestDto.getCapacity();
+        this.period.update(requestDto.getStartAt(), requestDto.getEndAt());
     }
 
     public void update(String title, String description, Integer capacity,
