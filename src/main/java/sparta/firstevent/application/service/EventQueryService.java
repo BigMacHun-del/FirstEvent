@@ -2,9 +2,8 @@ package sparta.firstevent.application.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import sparta.firstevent.adapter.dto.EventRequestDto;
-import sparta.firstevent.application.parts.in.EventGetUseCase;
-import sparta.firstevent.application.parts.out.EventRepository;
+import sparta.firstevent.application.ports.in.EventGetUseCase;
+import sparta.firstevent.application.ports.out.EventRepository;
 import sparta.firstevent.domain.event.Event;
 
 import java.util.List;

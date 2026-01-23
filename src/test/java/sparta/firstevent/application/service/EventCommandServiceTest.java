@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import sparta.firstevent.adapter.dto.EventRequestDto;
-import sparta.firstevent.application.parts.in.EventManageUseCase;
+import sparta.firstevent.application.ports.in.EventManageUseCase;
 import sparta.firstevent.domain.event.Event;
 import sparta.firstevent.domain.event.EventFixture;
 

@@ -3,8 +3,8 @@ package sparta.firstevent.application.service;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import sparta.firstevent.application.parts.in.EventGetUseCase;
-import sparta.firstevent.application.parts.in.EventManageUseCase;
+import sparta.firstevent.application.ports.in.EventGetUseCase;
+import sparta.firstevent.application.ports.in.EventManageUseCase;
 import sparta.firstevent.domain.event.EventFixture;
 
 import static org.assertj.core.api.Assertions.assertThat;

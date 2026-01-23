@@ -1,4 +1,4 @@
-package sparta.firstevent.application.parts.out;
+package sparta.firstevent.application.ports.out;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import sparta.firstevent.domain.event.Event;

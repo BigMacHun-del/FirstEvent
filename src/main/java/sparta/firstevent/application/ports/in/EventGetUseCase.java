@@ -1,4 +1,4 @@
-package sparta.firstevent.application.parts.in;
+package sparta.firstevent.application.ports.in;
 
 import sparta.firstevent.domain.event.Event;
 
